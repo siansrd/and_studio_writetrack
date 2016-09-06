@@ -13,6 +13,7 @@ public class ActivityMain extends AppCompatActivity {
 
     Button toEntry;
     Button toJournal;
+    Button toTotals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,15 @@ public class ActivityMain extends AppCompatActivity {
             }
         });
 
+
+        toTotals = (Button)findViewById(R.id.toTotals);
+
+        toTotals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ActivityMain.this, ActivityTotals.class));
+            }
+        });
 
     }
 

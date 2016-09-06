@@ -29,7 +29,6 @@ public class EntryClass {
         this._duration = duration;
     }
 
-
     public int getId () {
         return this._id;
     }

@@ -29,4 +29,11 @@ public class ActivityJournal extends AppCompatActivity {
         listView1.setAdapter(adapter);
 
     }
+
+
+
+
+
+
+
 }

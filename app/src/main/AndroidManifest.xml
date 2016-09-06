@@ -29,6 +29,11 @@
             android:label="Journal">
         </activity>
 
+        <activity
+            android:name=".ActivityTotals"
+            android:label="Totals">
+        </activity>
+
 
     </application>
 
