@@ -1,26 +1,29 @@
 package com.example.user.writetrack;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 /**
  * Created by user on 05/09/2016.
  */
 public class EntryClass {
 
     int _id;
-    Integer _date;
+    Date _date;
     Integer _wordCount;
     Integer _duration;
 
     public EntryClass() {}
 
-
-    public EntryClass (int id, Integer date, Integer wordCount, Integer duration) {
+    public EntryClass (int id, Date date, Integer wordCount, Integer duration) {
         this._id = id;
         this._date = date;
         this._wordCount = wordCount;
         this._duration = duration;
     }
 
-    public EntryClass (Integer date, Integer wordCount, Integer duration) {
+    public EntryClass (Date date, Integer wordCount, Integer duration) {
         this._date = date;
         this._wordCount = wordCount;
         this._duration = duration;
@@ -35,11 +38,18 @@ public class EntryClass {
         this._id = id;
     }
 
-    public Integer getDate() {
+    public Date getDate() {
         return this._date;
     }
 
-    public void setDate(Integer date) {
+    public String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd", Locale.getDefault());
+        Date date = getDate();
+        return dateFormat.format(date);
+    }
+
+    public void setDate(Date date) {
         this._date = date;
     }
 

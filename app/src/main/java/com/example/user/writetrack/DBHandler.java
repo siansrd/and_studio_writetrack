@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by user on 05/09/2016.
@@ -30,7 +33,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_JOURNAL_TABLE = " CREATE TABLE " + TABLE_JOURNAL + "("
-                + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_DATE + " INTEGER, " + KEY_WORDCOUNT + " INTEGER, " + KEY_DURATION + " INTEGER " + ")";
+                + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_DATE + " DATE, " + KEY_WORDCOUNT + " INTEGER, " + KEY_DURATION + " INTEGER " + ")";
         db.execSQL(CREATE_JOURNAL_TABLE);
     }
 
@@ -40,10 +43,11 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     public void addEntry(EntryClass entry) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE, entry.getDate());
+        values.put(KEY_DATE, entry.getDateTime());
         values.put(KEY_WORDCOUNT, entry.getWordCount());
         values.put(KEY_DURATION, entry.getDuration());
 
@@ -59,7 +63,12 @@ public class DBHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        EntryClass entry = new EntryClass(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)), Integer.parseInt(cursor.getString(3)));
+        Integer _id         = Integer.parseInt(cursor.getString(0));
+        Date date           = new Date(cursor.getLong(1)); // This needs fixing
+        Integer wordcount   = Integer.parseInt(cursor.getString(2));
+        Integer duration    = Integer.parseInt(cursor.getString(3));
+
+        EntryClass entry = new EntryClass(_id, date, wordcount, duration);
         return entry;
     }
 
@@ -74,7 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
             do {
                 EntryClass entry = new EntryClass();
                 entry.setId(Integer.parseInt(cursor.getString(0)));
-                entry.setDate(Integer.parseInt(cursor.getString(1)));
+                entry.setDate(new Date(cursor.getLong(1)));
                 entry.setWordCount(Integer.parseInt(cursor.getString(2)));
                 entry.setDuration(Integer.parseInt(cursor.getString(3)));
                 entryList.add(entry);
@@ -88,7 +97,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE, entry.getDate());
+        values.put(KEY_DATE, entry.getDate().toString());
         values.put(KEY_WORDCOUNT, entry.getWordCount());
         values.put(KEY_DURATION, entry.getDuration());
 
