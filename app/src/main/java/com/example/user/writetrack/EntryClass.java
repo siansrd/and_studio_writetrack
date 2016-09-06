@@ -10,20 +10,20 @@ import java.util.Locale;
 public class EntryClass {
 
     int _id;
-    Date _date;
+    String _date;
     Integer _wordCount;
     Integer _duration;
 
     public EntryClass() {}
 
-    public EntryClass (int id, Date date, Integer wordCount, Integer duration) {
+    public EntryClass (int id, String date, Integer wordCount, Integer duration) {
         this._id = id;
         this._date = date;
         this._wordCount = wordCount;
         this._duration = duration;
     }
 
-    public EntryClass (Date date, Integer wordCount, Integer duration) {
+    public EntryClass (String date, Integer wordCount, Integer duration) {
         this._date = date;
         this._wordCount = wordCount;
         this._duration = duration;
@@ -38,18 +38,9 @@ public class EntryClass {
         this._id = id;
     }
 
-    public Date getDate() {
-        return this._date;
-    }
+    public String getDate() { return this._date; }
 
-    public String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd", Locale.getDefault());
-        Date date = getDate();
-        return dateFormat.format(date);
-    }
-
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this._date = date;
     }
 

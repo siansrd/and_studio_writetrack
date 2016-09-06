@@ -47,6 +47,7 @@ public class ActivityEntry extends AppCompatActivity {
         mDuration  = (EditText) findViewById(R.id.editDuration);
         mSave   = (Button) findViewById(R.id.save);
         Calendar newCalendar = Calendar.getInstance();
+//        Isn't this newing up a date rather than taking in date set???
         mSelectedDate = new Date (newCalendar.getTimeInMillis());
 
         Log.d("WriteTrack:", "onCreate date " + mSelectedDate.toString() + " has been created");
@@ -67,7 +68,7 @@ public class ActivityEntry extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                String date = mSelectedDate.toString();
+                String date = mSelectedDate.toString();
                 Integer wordCount = Integer.parseInt(mWordCount.getText().toString());
                 Integer duration = Integer.parseInt(mDuration.getText().toString());
 

@@ -33,7 +33,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_JOURNAL_TABLE = " CREATE TABLE " + TABLE_JOURNAL + "("
-                + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_DATE + " DATE, " + KEY_WORDCOUNT + " INTEGER, " + KEY_DURATION + " INTEGER " + ")";
+                + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_DATE + " TEXT, " + KEY_WORDCOUNT + " INTEGER, " + KEY_DURATION + " INTEGER " + ")";
         db.execSQL(CREATE_JOURNAL_TABLE);
     }
 
@@ -47,7 +47,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void addEntry(EntryClass entry) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE, entry.getDateTime());
+        values.put(KEY_DATE, entry.getDate());
         values.put(KEY_WORDCOUNT, entry.getWordCount());
         values.put(KEY_DURATION, entry.getDuration());
 
@@ -64,7 +64,7 @@ public class DBHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         Integer _id         = Integer.parseInt(cursor.getString(0));
-        Date date           = new Date(cursor.getLong(1)); // This needs fixing
+        String date         = cursor.getString(1);
         Integer wordcount   = Integer.parseInt(cursor.getString(2));
         Integer duration    = Integer.parseInt(cursor.getString(3));
 
@@ -83,7 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
             do {
                 EntryClass entry = new EntryClass();
                 entry.setId(Integer.parseInt(cursor.getString(0)));
-                entry.setDate(new Date(cursor.getLong(1)));
+                entry.setDate(cursor.getString(1));
                 entry.setWordCount(Integer.parseInt(cursor.getString(2)));
                 entry.setDuration(Integer.parseInt(cursor.getString(3)));
                 entryList.add(entry);
@@ -97,7 +97,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE, entry.getDate().toString());
+        values.put(KEY_DATE, entry.getDate());
         values.put(KEY_WORDCOUNT, entry.getWordCount());
         values.put(KEY_DURATION, entry.getDuration());
 
