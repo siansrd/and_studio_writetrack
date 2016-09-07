@@ -40,13 +40,9 @@ public class EntryClass {
     }
 
 
-    public int getId () {
-        return this._id;
-    }
+    public int getId () { return this._id; }
 
-    public void setId(int id) {
-        this._id = id;
-    }
+    public void setId(int id) { this._id = id; }
 
     public String getDate() { return this._date; }
 
@@ -54,9 +50,7 @@ public class EntryClass {
         this._date = date;
     }
 
-    public Integer getWordCount() {
-        return this._wordCount;
-    }
+    public Integer getWordCount() { return this._wordCount; }
 
     public void setWordCount(Integer wordCount) {
         this._wordCount = wordCount;
@@ -69,6 +63,14 @@ public class EntryClass {
     public void setDuration(Integer duration) {
         this._duration = duration;
     }
+
+    public Date getDateObj() { return this._dateObj; }
+
+    public void setDateObj(Date dateObj) {
+        this._dateObj = dateObj;
+    }
+
+
 
     @Override
     public String toString() {

@@ -50,4 +50,5 @@ public class JournalClass {
         return entriesWithDateObjs;
     }
 
+
 }

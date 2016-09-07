@@ -17,17 +17,23 @@
             android:layout_marginTop="15dp"
             android:stretchColumns="*">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#160C28"
                 android:text="Date" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#160C28"
                 android:text="Word Count" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Duration" />
+                android:textSize="18sp"
+                android:textColor="#160C28"
+                android:text="Hours" />
         </TableRow>
     </TableLayout>
 

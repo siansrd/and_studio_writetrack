@@ -1,5 +1,6 @@
 package com.example.user.writetrack;
 
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -25,37 +26,20 @@ public class ActivityJournal extends AppCompatActivity {
         JournalClass journal = new JournalClass();
         ArrayList<EntryClass> entriesWithDateObjs = journal.entriesWithDateObjs(entries);
 
+
+
         ArrayAdapter<EntryClass> adapter = new ArrayAdapter<EntryClass>(this,
                 android.R.layout.simple_list_item_1, entriesWithDateObjs);
 
         listView1.setAdapter(adapter);
+
+
+
+
+
 
     }
 
 
 }
 
-
-//WORKING VERSION FOR ALL ENTRIES
-//
-//public class ActivityJournal extends AppCompatActivity {
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_journal);
-//
-//        final DBHandler db = ((MainApplication) getApplication()).db;
-//
-//        ListView listView1 = (ListView) findViewById(R.id.entries);
-//
-//        ArrayList<EntryClass> entries = db.getAllEntries();
-//
-//        ArrayAdapter<EntryClass> adapter = new ArrayAdapter<EntryClass>(this,
-//                android.R.layout.simple_list_item_1, entries);
-//
-//        listView1.setAdapter(adapter);
-//
-//    }
-//
-//}
