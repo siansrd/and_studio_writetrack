@@ -94,7 +94,9 @@
         android:id="@+id/filteredEntries"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:dividerHeight="1dp" />
+        android:dividerHeight="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 
 </LinearLayout>
