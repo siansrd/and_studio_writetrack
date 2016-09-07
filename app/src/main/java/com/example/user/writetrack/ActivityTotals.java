@@ -13,6 +13,7 @@ public class ActivityTotals extends AppCompatActivity {
 
     TextView mTotalWordCount;
     TextView mTotalDuration;
+    TextView mWordsPerHour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class ActivityTotals extends AppCompatActivity {
 
         mTotalWordCount = (TextView) findViewById(R.id.totalWordCount);
         mTotalDuration = (TextView) findViewById(R.id.totalDuration);
+        mWordsPerHour = (TextView) findViewById(R.id.wordPerHour);
 
         DBHandler db = ((MainApplication) getApplication()).db;
         ArrayList<EntryClass> entries = db.getAllEntries();
@@ -28,9 +30,13 @@ public class ActivityTotals extends AppCompatActivity {
         JournalClass journal = new JournalClass();
         String totalWordCount = journal.totalWordCount(entries).toString();
         String totalDuration = journal.totalDuration(entries).toString();
+        Integer wordsPerHour = (journal.totalWordCount(entries) / journal.totalDuration(entries));
 
         mTotalWordCount.setText(totalWordCount);
         mTotalDuration.setText(totalDuration);
+        mWordsPerHour.setText(wordsPerHour.toString());
+
+
 
     }
 

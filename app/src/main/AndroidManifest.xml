@@ -11,7 +11,7 @@
 
         <activity
             android:name=".ActivityMain"
-            android:label="WriteTrack">
+            android:label="Word Track">
             <intent-filter>
                 <category
                     android:name="android.intent.category.LAUNCHER"/>
@@ -20,18 +20,15 @@
         </activity>
 
         <activity
-            android:name=".ActivityEntry"
-            android:label="Add Entry">
+            android:name=".ActivityEntry">
         </activity>
 
         <activity
-            android:name=".ActivityJournal"
-            android:label="Journal">
+            android:name=".ActivityJournal">
         </activity>
 
         <activity
-            android:name=".ActivityTotals"
-            android:label="Totals">
+            android:name=".ActivityTotals">
         </activity>
 
 

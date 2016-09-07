@@ -3,6 +3,7 @@ package com.example.user.writetrack;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -76,6 +77,7 @@ public class ActivityEntry extends AppCompatActivity {
                 Log.d("WriteTrack:", "clicked! input date " + mSelectedDate.toString() + " has been created");
                 db.addEntry(entry);
                 Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ActivityEntry.this, ActivityMain.class));
 
             }
 

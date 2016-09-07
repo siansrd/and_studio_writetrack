@@ -51,4 +51,16 @@ public class JournalClass {
     }
 
 
+    public static ArrayList<EntryClass> filterEntiesByDate (Date fromDate, Date toDate, ArrayList<EntryClass> entries) {
+
+        ArrayList<EntryClass> filteredEntries = new ArrayList<EntryClass>();
+        for (EntryClass entry : entries) {
+            if (entry.getDateObj().after(fromDate) && entry.getDateObj().before(toDate) ) {
+                filteredEntries.add(entry);
+            }
+        }
+        return filteredEntries;
+    }
+
+
 }

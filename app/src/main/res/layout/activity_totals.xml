@@ -41,4 +41,22 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
 
+    <TextView
+        android:text="Words p/h"
+        android:textSize="20sp"
+        android:textColor="#160C28"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="40sp"/>
+
+    <TextView
+        android:id="@+id/wordPerHour"
+        android:text=""
+        android:textSize="28sp"
+        android:textColor="#160C28"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+
 </LinearLayout>
