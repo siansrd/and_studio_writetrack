@@ -3,6 +3,7 @@ package com.example.user.writetrack;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -84,6 +85,12 @@ public class ActivityJournal extends AppCompatActivity {
         mFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String fromDate = mSelectedFromDate.toString();
+                Log.d("WriteTrack:", "clicked! input from date " + fromDate + " has been created");
+                String toDate = mSelectedToDate.toString();
+                Log.d("WriteTrack:", "clicked! input to date " + toDate + " has been created");
+
+//                FILTER ARRAY LIST BY DATES SELECTED DATES
 
             }
         });
