@@ -4,8 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--Add Date Pickers Here to filter-->
+    <!--Date pickers and filter button-->
 
+    <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:stretchColumns="*">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:stretchColumns="*">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="From"
+                android:id="@+id/fromDate"
+                android:onClick="showDatePickerDialog"
+                android:background="@drawable/my_button_bg"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="To"
+                android:id="@+id/toDate"
+                android:onClick="showDatePickerDialog"
+                android:background="@drawable/my_button_bg"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Filter"
+                android:id="@+id/filter"
+                android:background="@drawable/my_button_bg"/>
+        </TableRow>
+    </TableLayout>
+
+
+    <!--Journal headings -->
     <TableLayout
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"

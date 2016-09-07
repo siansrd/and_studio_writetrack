@@ -22,12 +22,12 @@ public class ActivityTotals extends AppCompatActivity {
         mTotalWordCount = (TextView) findViewById(R.id.totalWordCount);
         mTotalDuration = (TextView) findViewById(R.id.totalDuration);
 
-        final DBHandler db = ((MainApplication) getApplication()).db;
+        DBHandler db = ((MainApplication) getApplication()).db;
         ArrayList<EntryClass> entries = db.getAllEntries();
 
         JournalClass journal = new JournalClass();
-        Integer totalWordCount = journal.totalWordCount(entries);
-        Integer totalDuration = journal.totalDuration(entries);
+        String totalWordCount = journal.totalWordCount(entries).toString();
+        String totalDuration = journal.totalDuration(entries).toString();
 
         mTotalWordCount.setText(totalWordCount);
         mTotalDuration.setText(totalDuration);
