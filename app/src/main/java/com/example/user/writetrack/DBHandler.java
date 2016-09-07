@@ -95,17 +95,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     public int updateEntry(EntryClass entry) {
         SQLiteDatabase db = this.getWritableDatabase();
 

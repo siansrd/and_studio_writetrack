@@ -13,6 +13,7 @@ public class EntryClass {
     String _date;
     Integer _wordCount;
     Integer _duration;
+    Date _dateObj;
 
     public EntryClass() {}
 
@@ -28,6 +29,16 @@ public class EntryClass {
         this._wordCount = wordCount;
         this._duration = duration;
     }
+
+
+    public EntryClass (int id, String date, Integer wordCount, Integer duration, Date dateObj ) {
+        this._id = id;
+        this._date = date;
+        this._wordCount = wordCount;
+        this._duration = duration;
+        this._dateObj = dateObj;
+    }
+
 
     public int getId () {
         return this._id;

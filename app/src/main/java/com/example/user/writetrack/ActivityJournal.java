@@ -22,18 +22,40 @@ public class ActivityJournal extends AppCompatActivity {
         ListView listView1 = (ListView) findViewById(R.id.entries);
 
         ArrayList<EntryClass> entries = db.getAllEntries();
+        JournalClass journal = new JournalClass();
+        ArrayList<EntryClass> entriesWithDateObjs = journal.entriesWithDateObjs(entries);
 
         ArrayAdapter<EntryClass> adapter = new ArrayAdapter<EntryClass>(this,
-                android.R.layout.simple_list_item_1, entries);
+                android.R.layout.simple_list_item_1, entriesWithDateObjs);
 
         listView1.setAdapter(adapter);
 
     }
 
 
-
-
-
-
-
 }
+
+
+//WORKING VERSION FOR ALL ENTRIES
+//
+//public class ActivityJournal extends AppCompatActivity {
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_journal);
+//
+//        final DBHandler db = ((MainApplication) getApplication()).db;
+//
+//        ListView listView1 = (ListView) findViewById(R.id.entries);
+//
+//        ArrayList<EntryClass> entries = db.getAllEntries();
+//
+//        ArrayAdapter<EntryClass> adapter = new ArrayAdapter<EntryClass>(this,
+//                android.R.layout.simple_list_item_1, entries);
+//
+//        listView1.setAdapter(adapter);
+//
+//    }
+//
+//}

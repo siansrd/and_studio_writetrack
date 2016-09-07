@@ -75,7 +75,7 @@ public class ActivityEntry extends AppCompatActivity {
                 EntryClass entry = new EntryClass(date, wordCount, duration);
                 Log.d("WriteTrack:", "clicked! input date " + mSelectedDate.toString() + " has been created");
                 db.addEntry(entry);
-                Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
 
             }
 

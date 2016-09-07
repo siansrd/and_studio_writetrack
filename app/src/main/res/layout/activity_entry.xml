@@ -18,6 +18,7 @@
     <EditText
         android:layout_width="140dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:id="@+id/editWordCount"
         android:inputType="number"
         android:hint="Word Count"/>
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editDuration"
         android:inputType="number"
-        android:hint="Duration"/>
+        android:hint="Hours"/>
 
     <Button
         android:id="@+id/save"
