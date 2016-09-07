@@ -51,7 +51,8 @@
     <TableLayout
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="15dp"
         android:stretchColumns="*">
         <TableRow
             android:layout_width="fill_parent"
@@ -85,7 +86,9 @@
         android:id="@+id/entries"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:dividerHeight="1dp" />
+        android:dividerHeight="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <ListView
         android:id="@+id/filteredEntries"
