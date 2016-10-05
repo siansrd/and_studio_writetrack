@@ -51,7 +51,7 @@ public class JournalClass {
     }
 
 
-    public static ArrayList<EntryClass> filterEntiesByDate (Date fromDate, Date toDate, ArrayList<EntryClass> entries) {
+    public static ArrayList<EntryClass> filterEntriesByDate (Date fromDate, Date toDate, ArrayList<EntryClass> entries) {
 
         ArrayList<EntryClass> filteredEntries = new ArrayList<EntryClass>();
         for (EntryClass entry : entries) {

@@ -122,7 +122,7 @@ public class ActivityJournal extends AppCompatActivity {
 
                 mlistView.setVisibility(View.GONE);
 
-                mFilteredEntries = JournalClass.filterEntiesByDate(mSelectedFromDate, mSelectedToDate, entriesWithDateObjs);
+                mFilteredEntries = JournalClass.filterEntriesByDate(mSelectedFromDate, mSelectedToDate, entriesWithDateObjs);
 
                 adapter = new EntryArrayAdapter(ActivityJournal.this, 0, mFilteredEntries.size() > 0 ? mFilteredEntries : entriesWithDateObjs );
                 mFilterListView = (ListView) findViewById(R.id.filteredEntries);
