@@ -8,7 +8,8 @@
         android:layout_width="fill_parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:onClick="deleteEntry">
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
@@ -41,10 +43,7 @@ public class JournalActivity extends AppCompatActivity {
     ArrayList<Entry> mFilteredEntries;
 
 
-    public void showDatePickerDialog(View v) {
-        datePickerDialog2.show();
-        datePickerDialog1.show();
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +129,17 @@ public class JournalActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void deleteEntry(View entry) {
+        TableLayout journalEntry = (TableLayout) entry;
+        TextView date = (TextView) journalEntry.findViewById(R.id.date);
+        Log.d("Delete clicked", date.getText().toString());
+    }
+
+    public void showDatePickerDialog(View v) {
+        datePickerDialog2.show();
+        datePickerDialog1.show();
     }
 
 
