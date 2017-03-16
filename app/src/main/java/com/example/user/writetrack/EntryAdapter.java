@@ -14,13 +14,13 @@ import java.util.List;
 /**
  * Created by user on 07/09/2016.
  */
-class EntryArrayAdapter extends ArrayAdapter<EntryClass> {
+class EntryAdapter extends ArrayAdapter<Entry> {
 
     private Context context;
-    private List<EntryClass> entries;
+    private List<Entry> entries;
 
     //constructor, call on creation
-    public EntryArrayAdapter(Context context, int resource, ArrayList<EntryClass> objects) {
+    public EntryAdapter(Context context, int resource, ArrayList<Entry> objects) {
         super(context, resource, objects);
 
         this.context = context;
@@ -31,7 +31,7 @@ class EntryArrayAdapter extends ArrayAdapter<EntryClass> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         //get the entry we are displaying
-        EntryClass entry = entries.get(position);
+        Entry entry = entries.get(position);
 
         //get the inflater and inflate the XML layout for each item
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);

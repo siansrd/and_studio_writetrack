@@ -9,7 +9,7 @@ import android.widget.Button;
 /**
  * Created by user on 05/09/2016.
  */
-public class ActivityMain extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     Button toEntry;
     Button toJournal;
@@ -27,7 +27,7 @@ public class ActivityMain extends AppCompatActivity {
         toEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ActivityMain.this, ActivityEntry.class));
+                startActivity(new Intent(MainActivity.this, EntryActivity.class));
             }
         });
 
@@ -37,7 +37,7 @@ public class ActivityMain extends AppCompatActivity {
         toJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ActivityMain.this, ActivityJournal.class));
+                startActivity(new Intent(MainActivity.this, JournalActivity.class));
             }
         });
 
@@ -47,7 +47,7 @@ public class ActivityMain extends AppCompatActivity {
         toTotals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ActivityMain.this, ActivityTotals.class));
+                startActivity(new Intent(MainActivity.this, TotalsActivity.class));
             }
         });
 

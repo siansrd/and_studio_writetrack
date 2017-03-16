@@ -1,10 +1,7 @@
 package com.example.user.writetrack;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,7 +19,7 @@ import java.util.Calendar;
 /**
  * Created by user on 05/09/2016.
  */
-public class ActivityEntry extends AppCompatActivity {
+public class EntryActivity extends AppCompatActivity {
 
     TextView mDate;
     EditText mWordCount;
@@ -73,11 +70,11 @@ public class ActivityEntry extends AppCompatActivity {
                 Integer wordCount = Integer.parseInt(mWordCount.getText().toString());
                 Integer duration = Integer.parseInt(mDuration.getText().toString());
 
-                EntryClass entry = new EntryClass(date, wordCount, duration);
+                Entry entry = new Entry(date, wordCount, duration);
                 Log.d("WriteTrack:", "clicked! input date " + mSelectedDate.toString() + " has been created");
                 db.addEntry(entry);
                 Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(ActivityEntry.this, ActivityMain.class));
+                startActivity(new Intent(EntryActivity.this, MainActivity.class));
 
             }
 

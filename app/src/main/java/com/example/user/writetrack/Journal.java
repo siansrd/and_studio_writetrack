@@ -1,9 +1,6 @@
 package com.example.user.writetrack;
 
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -11,50 +8,50 @@ import java.util.ArrayList;
  * Created by user on 05/09/2016.
  */
 
-public class JournalClass {
+public class Journal {
 
-    public JournalClass() {
+    public Journal() {
     }
 
-   public Integer totalWordCount(ArrayList<EntryClass> entries) {
+   public Integer totalWordCount(ArrayList<Entry> entries) {
        Integer total = 0;
-       for (EntryClass entry : entries) {
+       for (Entry entry : entries) {
           total += entry.getWordCount();
        }
        return total;
    }
 
 
-    public Integer totalDuration(ArrayList<EntryClass> entries) {
+    public Integer totalDuration(ArrayList<Entry> entries) {
         Integer total = 0;
-        for (EntryClass entry : entries) {
+        for (Entry entry : entries) {
             total += entry.getDuration();
         }
         return total;
     }
 
 
-    public ArrayList<EntryClass> entriesWithDateObjs (ArrayList<EntryClass> entries) {
-        ArrayList<EntryClass> entriesWithDateObjs = new ArrayList<EntryClass>();
+    public ArrayList<Entry> entriesWithDateObjs (ArrayList<Entry> entries) {
+        ArrayList<Entry> entriesWithDateObjs = new ArrayList<Entry>();
 
-        for (EntryClass entry : entries) {
+        for (Entry entry : entries) {
             Integer id          = entry.getId();
             String date         = entry.getDate();
             Integer wordCount   = entry.getWordCount();
             Integer duration    = entry.getDuration();
             Date dateObj        = Date.valueOf(date);
 
-            EntryClass entryWithDateObj = new EntryClass( id, date, wordCount, duration, dateObj );
+            Entry entryWithDateObj = new Entry( id, date, wordCount, duration, dateObj );
             entriesWithDateObjs.add(entryWithDateObj);
         }
         return entriesWithDateObjs;
     }
 
 
-    public static ArrayList<EntryClass> filterEntriesByDate (Date fromDate, Date toDate, ArrayList<EntryClass> entries) {
+    public static ArrayList<Entry> filterEntriesByDate (Date fromDate, Date toDate, ArrayList<Entry> entries) {
 
-        ArrayList<EntryClass> filteredEntries = new ArrayList<EntryClass>();
-        for (EntryClass entry : entries) {
+        ArrayList<Entry> filteredEntries = new ArrayList<Entry>();
+        for (Entry entry : entries) {
             if (entry.getDateObj().after(fromDate) && entry.getDateObj().before(toDate) ) {
                 filteredEntries.add(entry);
             }

@@ -7,7 +7,7 @@ import java.util.Locale;
 /**
  * Created by user on 05/09/2016.
  */
-public class EntryClass {
+public class Entry {
 
     int _id;
     String _date;
@@ -15,23 +15,23 @@ public class EntryClass {
     Integer _duration;
     Date _dateObj;
 
-    public EntryClass() {}
+    public Entry() {}
 
-    public EntryClass (int id, String date, Integer wordCount, Integer duration) {
+    public Entry(int id, String date, Integer wordCount, Integer duration) {
         this._id = id;
         this._date = date;
         this._wordCount = wordCount;
         this._duration = duration;
     }
 
-    public EntryClass (String date, Integer wordCount, Integer duration) {
+    public Entry(String date, Integer wordCount, Integer duration) {
         this._date = date;
         this._wordCount = wordCount;
         this._duration = duration;
     }
 
 
-    public EntryClass (int id, String date, Integer wordCount, Integer duration, Date dateObj ) {
+    public Entry(int id, String date, Integer wordCount, Integer duration, Date dateObj ) {
         this._id = id;
         this._date = date;
         this._wordCount = wordCount;

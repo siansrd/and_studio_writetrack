@@ -10,7 +10,7 @@
         android:name=".MainApplication">
 
         <activity
-            android:name=".ActivityMain"
+            android:name=".MainActivity"
             android:label="Word Track">
             <intent-filter>
                 <category
@@ -20,15 +20,15 @@
         </activity>
 
         <activity
-            android:name=".ActivityEntry">
+            android:name=".EntryActivity">
         </activity>
 
         <activity
-            android:name=".ActivityJournal">
+            android:name=".JournalActivity">
         </activity>
 
         <activity
-            android:name=".ActivityTotals">
+            android:name=".TotalsActivity">
         </activity>
 
 

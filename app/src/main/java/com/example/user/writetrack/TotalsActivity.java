@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by user on 06/09/2016.
  */
-public class ActivityTotals extends AppCompatActivity {
+public class TotalsActivity extends AppCompatActivity {
 
     TextView mTotalWordCount;
     TextView mTotalDuration;
@@ -25,9 +25,9 @@ public class ActivityTotals extends AppCompatActivity {
         mWordsPerHour = (TextView) findViewById(R.id.wordPerHour);
 
         DBHandler db = ((MainApplication) getApplication()).db;
-        ArrayList<EntryClass> entries = db.getAllEntries();
+        ArrayList<Entry> entries = db.getAllEntries();
 
-        JournalClass journal = new JournalClass();
+        Journal journal = new Journal();
         String totalWordCount = journal.totalWordCount(entries).toString();
         String totalDuration = journal.totalDuration(entries).toString();
         Integer wordsPerHour = (journal.totalWordCount(entries) / journal.totalDuration(entries));

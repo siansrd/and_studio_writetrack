@@ -11,22 +11,20 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 
 /**
  * Created by user on 05/09/2016.
  */
-public class ActivityJournal extends AppCompatActivity {
+public class JournalActivity extends AppCompatActivity {
 
-    private ArrayList<EntryClass> entriesWithDateObjs;
-    ArrayAdapter<EntryClass> adapter;
+    private ArrayList<Entry> entriesWithDateObjs;
+    ArrayAdapter<Entry> adapter;
     DBHandler db;
     private DatePickerDialog datePickerDialog;
     ListView mlistView;
@@ -40,7 +38,7 @@ public class ActivityJournal extends AppCompatActivity {
     Date mSelectedToDate;
     private DatePickerDialog datePickerDialog1;
     private DatePickerDialog datePickerDialog2;
-    ArrayList<EntryClass> mFilteredEntries;
+    ArrayList<Entry> mFilteredEntries;
 
 
     public void showDatePickerDialog(View v) {
@@ -64,17 +62,17 @@ public class ActivityJournal extends AppCompatActivity {
         mSelectedFromDate = new Date(newCalendar.getTimeInMillis());
         mSelectedToDate = new Date(newCalendar.getTimeInMillis());
 
-        mFilteredEntries = new ArrayList<EntryClass>();
+        mFilteredEntries = new ArrayList<Entry>();
 
 
         //        Prepare list to pass into the list view
-        ArrayList<EntryClass> entries = db.getAllEntries();
-        JournalClass journal = new JournalClass();
+        ArrayList<Entry> entries = db.getAllEntries();
+        Journal journal = new Journal();
         entriesWithDateObjs = journal.entriesWithDateObjs(entries);
 
 
 //        Create a new array adapter & list view
-        adapter = new EntryArrayAdapter(this, 0, entriesWithDateObjs);
+        adapter = new EntryAdapter(this, 0, entriesWithDateObjs);
         mlistView = (ListView) findViewById(R.id.entries);
         mlistView.setAdapter(adapter);
 
@@ -82,10 +80,10 @@ public class ActivityJournal extends AppCompatActivity {
         mlistView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                EntryClass deletedEntry = entriesWithDateObjs.remove(position);
+                Entry deletedEntry = entriesWithDateObjs.remove(position);
                 adapter.notifyDataSetChanged();
                 db.deleteEntry(deletedEntry);
-                Toast.makeText(ActivityJournal.this, "Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(JournalActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -122,9 +120,9 @@ public class ActivityJournal extends AppCompatActivity {
 
                 mlistView.setVisibility(View.GONE);
 
-                mFilteredEntries = JournalClass.filterEntriesByDate(mSelectedFromDate, mSelectedToDate, entriesWithDateObjs);
+                mFilteredEntries = Journal.filterEntriesByDate(mSelectedFromDate, mSelectedToDate, entriesWithDateObjs);
 
-                adapter = new EntryArrayAdapter(ActivityJournal.this, 0, mFilteredEntries.size() > 0 ? mFilteredEntries : entriesWithDateObjs );
+                adapter = new EntryAdapter(JournalActivity.this, 0, mFilteredEntries.size() > 0 ? mFilteredEntries : entriesWithDateObjs );
                 mFilterListView = (ListView) findViewById(R.id.filteredEntries);
                 mFilterListView.setAdapter(adapter);
 
